@@ -1,0 +1,17 @@
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.587);
+    height: 100%;
+    width: 100%;
+}
+
+
+.name{
+display: flex;
+flex-direction: column ;
+width: 100px;
+border: 1px black solid;  
+z-index: 1;
+}
