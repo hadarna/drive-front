@@ -10,11 +10,40 @@
     width: 100%;
 }
 
-
 .name{
 display: flex;
-flex-direction: column ;
-width: 100px;
-border: 1px black solid;  
+flex-direction: column;
+width: 200px;
+height: 125px;
+border: 5px var(--primary) solid;  
+background-color: whitesmoke;
+font-weight: 600;
 z-index: 1;
+}
+
+.label{
+    padding: 5px;
+}
+
+.input{
+    width: 150px;
+    margin: 5px 20px 10px 20px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px ;
+    background-color: whitesmoke;
+}
+
+.create{
+    width: 60px;
+    height: 30px;
+    margin: 0 65px;
+    border: none;
+    border-radius: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.create:hover{
+    background-color:var(--tertiary) ;
 }
