@@ -1,0 +1,28 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Shantell+Sans&display=swap');
+
+
+
+.header{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 65px;
+    background-color: black;
+    z-index: 1;
+}
+
+.naiman{
+ color: var(--primary);
+    background-color: black;
+    font-family: 'Fredoka One', cursive;
+    font-size: 35px;
+    margin-left: 20px;
+}
+.drive{
+ color:var(--secondary);
+    background-color: black;
+font-family: 'Shantell Sans', cursive;
+font-size: 35px;
+}

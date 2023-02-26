@@ -1,0 +1,20 @@
+.container{
+
+
+}
+
+.fileShow{
+    margin: 30px;
+}
+.headerF{
+    font-weight: 600;
+    font-size: 25px;
+    margin: 17px;
+}
+
+.files{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 70px 10px;
+}
