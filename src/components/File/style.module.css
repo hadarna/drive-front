@@ -1,5 +1,58 @@
-.file{
+
+.container{
+ position: relative;  
+}
+
+
+.file,  .folder{
+  border: 2px black solid;
+  width: 150px;
+  height: 50px;
+  box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.429);;
+  border-radius: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+  padding: 10px 10px 10px 0;
+  text-align: center;
+}
+
+.oneFile:hover,.folderPlay:hover, .oneFolder:hover{
+  color: var(--primary);
+} 
+
+.folderIcon{
+
+
+}
+.oneFolder{
+  margin: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+   cursor: pointer; 
+}
+
+.menuButton{
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  height: 20px;
+  width: 20px;
+  font-size: 17px;
+  z-index: 4;
+  background-color: transparent;
+  cursor: pointer;
+}
+.menuButton:hover{
+ background-color: gainsboro;
+ border-radius: 30px;
+}
+.menu{
+   position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height:70px;
+    z-index:3;
     border: 2px black solid;
-    width: 150px;
-    box-shadow: -6px -6px 6px 0px #828282;
 }
