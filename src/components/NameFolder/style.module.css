@@ -18,7 +18,7 @@ height: 125px;
 border: 5px var(--primary) solid;  
 background-color: whitesmoke;
 font-weight: 600;
-z-index: 1;
+z-index: 10;
 }
 
 .label{
