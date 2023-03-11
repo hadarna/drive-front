@@ -1,3 +1,7 @@
 .menu{
-    
+    height: 200px;
+    width: 150px;
+    background-color: white;
+    z-index: 5;
+    transition: all .5s ease-in-out;
 } 

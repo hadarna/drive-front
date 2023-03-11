@@ -16,7 +16,7 @@ flex-direction: column;
 width: 200px;
 height: 125px;
 border: 5px var(--primary) solid;  
-background-color: whitesmoke;
+background-color: rgb(245, 245, 245);
 font-weight: 600;
 z-index: 10;
 }
