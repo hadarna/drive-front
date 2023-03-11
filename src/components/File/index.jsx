@@ -37,7 +37,7 @@ export default function File({ file }) {
                 <span className={styles.menuButton} onClick={() => (setOpenMenuFile(!openMenuFile))}> <BiMenu /></span>
                 <span className={styles.oneFile}><span className={styles.reacticon}>{reactIcon}</span> {file}</span>
             </div >
-            {openMenuFile && <div className={styles.menu}><MenuFile /></div>}
+            {openMenuFile && <div className={styles.menu}><MenuFile file={file} /></div>}
         </div>
     )
 }
