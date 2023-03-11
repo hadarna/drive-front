@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import style from "./style.module.css";
 import { BiMenu } from 'react-icons/bi';
 import { useState } from "react";
 import MenuFile from "../MenuFile";
@@ -32,12 +32,12 @@ export default function File({ file }) {
 
 
     return (
-        <div className={styles.container}>
-            <div className={styles.file}>
-                <span className={styles.menuButton} onClick={() => (setOpenMenuFile(!openMenuFile))}> <BiMenu /></span>
-                <span className={styles.oneFile}><span className={styles.reacticon}>{reactIcon}</span> {file}</span>
+        <div className={style.container}>
+            <div className={style.file}>
+                <span className={style.menuButton} onClick={() => (setOpenMenuFile(!openMenuFile))}> <BiMenu /></span>
+                <span className={style.oneFile}><span className={style.reacticon}>{reactIcon}</span> {file}</span>
             </div >
-            {openMenuFile && <div className={styles.menu}><MenuFile file={file} /></div>}
+            {openMenuFile && <div className={style.menu}><MenuFile file={file} /></div>}
         </div>
     )
 }
