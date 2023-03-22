@@ -21,10 +21,6 @@
   color: var(--primary);
 } 
 
-.folderIcon{
-
-
-}
 .oneFolder{
   margin: 5px;
   overflow: hidden;
@@ -39,20 +35,20 @@
   height: 20px;
   width: 20px;
   font-size: 17px;
-  z-index: 4;
   background-color: transparent;
   cursor: pointer;
 }
 .menuButton:hover{
- background-color: gainsboro;
+ background-color: var(--secondary);
  border-radius: 30px;
 }
 .menu{
    position: absolute;
     top: 0;
-    right: 0;
+    right: -40px;
     width: 70px;
-    height:70px;
+    height:40px;
     z-index:3;
-    border: 2px black solid;
+    border: 2px var(--primary) solid;
+    cursor: pointer;
 }

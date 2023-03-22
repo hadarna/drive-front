@@ -4,25 +4,27 @@ import style from "./style.module.css";
 import rename from "../../function/rename";
 import downloadFile from "../../function/downloadFile";
 import readFiles from "../../function/readFiles";
-import readFolder from "../../function/readFolder";
 import InfoFile from "../InfoFile";
 import getInfo from "../../function/getInfo"
+import deleteFile from "../../function/deleteFile";
+import { FiEdit, FiDownload, FiInfo } from 'react-icons/fi';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 
 
 export default function MenuFile({ file }) {
-    const { setFiles, setFolder } = useContext(fileContext)
+    const { setFiles } = useContext(fileContext)
 
     const [showInput, setShowInput] = useState(false);
     const [newName, setNewName] = useState('');
     const [infoShow, setInfoShow] = useState(false);
     const [info, setInfo] = useState({});
+    const [ifDelete, setIfDelete] = useState(false)
 
     function handClickRename() {
         setShowInput(false);
         rename(localStorage.path, file, newName)
-        readFolder(localStorage.path).then(res => setFolder(res))
-        readFiles(localStorage.path).then(res => setFiles(res))
+        readFiles(localStorage.path).then(res => setFiles(res));
     }
     function handClickInfo() {
         setInfoShow(!infoShow);
@@ -30,22 +32,34 @@ export default function MenuFile({ file }) {
             setInfo(information);
         })
     }
+    function handClickDelete(file) {
+        deleteFile(file);
+        setIfDelete(false);
+        readFiles(localStorage.path).then(res => setFiles(res));
+    }
 
     return (
         <div className={style.menu} >
-            <div className={style.option} onClick={() => (setShowInput(!showInput))}> Rename </div>
+            <div className={style.option} onClick={() => (setShowInput(!showInput))}><FiEdit /> Rename </div>
             {showInput && <div><input type="text" onChange={(e) => setNewName(e.target.value)} />
                 <button className={style.rename} onClick={handClickRename}>Rename</button>
             </div>}
 
-            <div className={style.option} onClick={() => (downloadFile(file))}> Download </div>
+            <div className={style.option} onClick={() => (downloadFile(file))}><FiDownload /> Download </div>
 
-            <div className={style.option} onClick={() => (handClickInfo())}>Information</div>
+            <div className={style.option} onClick={() => (handClickInfo())}> <FiInfo /> Information</div>
 
             {infoShow && <div className={style.info}>{<InfoFile info={info} />}</div>
             }
-
-            <div className={style.option}>Delete</div>
+            <div className={style.option} onClick={() => setIfDelete(true)}> <RiDeleteBinLine /> Delete</div>
+            {ifDelete &&
+                <div className={style.container}>
+                    <div className={style.delete}>
+                        <div>Are you sure you want to delete {file}?</div>
+                        <button className={style.yes} onClick={() => handClickDelete(file)}>Yes</button>
+                        <button className={style.yes} onClick={() => setIfDelete(false)}>Cancel</button>
+                    </div>
+                </div>}
         </div>
     )
 }
