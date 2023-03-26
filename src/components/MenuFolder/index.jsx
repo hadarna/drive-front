@@ -1,4 +1,4 @@
-import style from "./style.module.css";
+import style from "../MenuFile/style.module.css"
 import { useState, useContext } from "react";
 import fileContext from "../../context/fileContext";
 import rename from "../../function/rename";
@@ -42,21 +42,23 @@ export default function MenuFolder({ folder }) {
     return (
         <div className={style.menu} >
             <div className={style.option} onClick={() => (setShowInput(!showInput))}><FiEdit /> Rename </div>
-            {showInput && <div><input type="text" onChange={(e) => setNewName(e.target.value)} />
+            {showInput && <div><input type="text" className={style.input} onChange={(e) => setNewName(e.target.value)} />
                 <button className={style.rename} onClick={handClickRename}>Rename</button>
             </div>}
 
             <div className={style.option} onClick={() => (downloadFolder(folder))}><FiDownload /> Download </div>
             <div className={style.option} onClick={handClickDel}> <RiDeleteBinLine />Delete</div>
             {ifDelete &&
-                <div className={style.container}>
-                    <div className={style.delete}>
+                <div className={style.container} onClick={() => setIfDelete(false)}>
+                    <div className={style.delete} onClick={(event) => event.stopPropagation()}>
                         {isContent ?
                             <div> This folder contains files. If you delete all the files in it will be deleted as well. Are you sure you want delete it?</div> :
                             <div> This folder is empty. Are you sure you want delete it?</div>
                         }
-                        <button className={style.yes} onClick={handClickDelete}>Yes</button>
-                        <button className={style.yes} onClick={() => setIfDelete(false)}>Cancel</button>
+                        <div className={style.choose}>
+                            <button className={style.yes} onClick={handClickDelete}>Yes</button>
+                            <button className={style.yes} onClick={() => setIfDelete(false)}>Cancel</button>
+                        </div>
                     </div>
                 </div>}
         </div>

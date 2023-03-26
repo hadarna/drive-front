@@ -34,14 +34,14 @@ export default function MenuFile({ file }) {
     }
     function handClickDelete(file) {
         deleteFile(file);
-        setIfDelete(false);
         readFiles(localStorage.path).then(res => setFiles(res));
+        setIfDelete(false);
     }
 
     return (
         <div className={style.menu} >
             <div className={style.option} onClick={() => (setShowInput(!showInput))}><FiEdit /> Rename </div>
-            {showInput && <div><input type="text" onChange={(e) => setNewName(e.target.value)} />
+            {showInput && <div ><input type="text" className={style.input} onChange={(e) => setNewName(e.target.value)} />
                 <button className={style.rename} onClick={handClickRename}>Rename</button>
             </div>}
 
@@ -51,13 +51,15 @@ export default function MenuFile({ file }) {
 
             {infoShow && <div className={style.info}>{<InfoFile info={info} />}</div>
             }
-            <div className={style.option} onClick={() => setIfDelete(true)}> <RiDeleteBinLine /> Delete</div>
+            <div className={style.option} onClick={() => setIfDelete(!ifDelete)}> <RiDeleteBinLine /> Delete</div>
             {ifDelete &&
-                <div className={style.container}>
-                    <div className={style.delete}>
+                <div className={style.container} onClick={() => setIfDelete(false)}>
+                    <div className={style.delete} onClick={(event) => event.stopPropagation()}>
                         <div>Are you sure you want to delete {file}?</div>
-                        <button className={style.yes} onClick={() => handClickDelete(file)}>Yes</button>
-                        <button className={style.yes} onClick={() => setIfDelete(false)}>Cancel</button>
+                        <div className={style.choose}>
+                            <button className={style.yes} onClick={() => handClickDelete(file)}>Yes</button>
+                            <button className={style.yes} onClick={() => setIfDelete(false)}>Cancel</button>
+                        </div>
                     </div>
                 </div>}
         </div>

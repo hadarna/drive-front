@@ -1,6 +1,6 @@
 
 .container{
- position: relative;  
+ position: relative; 
 }
 
 
@@ -12,9 +12,11 @@
   border-radius: 7px;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: 10px;
   padding: 10px 10px 10px 0;
   text-align: center;
+}
+.file:hover, .folder:hover{
+  transform: scale(1.1)
 }
 
 .oneFile:hover,.folderPlay:hover, .oneFolder:hover{
@@ -44,11 +46,10 @@
 }
 .menu{
    position: absolute;
-    top: 0;
+    top: 2px;
     right: -40px;
     width: 70px;
     height:40px;
     z-index:3;
-    border: 2px var(--primary) solid;
     cursor: pointer;
 }
