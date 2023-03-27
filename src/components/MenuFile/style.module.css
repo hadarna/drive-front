@@ -1,7 +1,62 @@
 .menu{
-    height: 200px;
     width: 150px;
     background-color: white;
+border: solid var(--primary) 2px;
     z-index: 5;
-    transition: all .5s ease-in-out;
+    /* transition: all .5s ease-in-out; */
 } 
+
+.option{
+    padding: 3px;
+}
+
+.option:hover{
+    background-color: var(--fifth);
+}
+.input{
+    width: 140px;
+    margin-left: 4px;
+    padding-left: 8px;
+}
+.rename, .yes{
+    width: 60px;
+    height: 18px;
+    border: none;
+    border-radius: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.rename:hover, .yes:hover{
+    background-color:var(--tertiary) ;
+}
+
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.587);
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+}
+
+.delete{
+display: flex;
+flex-direction: column;
+padding: 8px;
+width: 250px;
+border: 5px var(--primary) solid;  
+background-color: rgb(245, 245, 245);
+font-weight: 600;
+z-index: 10;
+}
+
+.choose{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
