@@ -1,20 +1,29 @@
-import styles from "./style.module.css"
-import { BsFileEarmarkPlus, BsFolderPlus } from 'react-icons/bs'
-import NameFolder from "../NameFolder"
-import { useEffect, useRef, useState, useContext } from "react"
-import addFile from "../../function/addFile"
+import styles from "./style.module.css";
+import { BsFileEarmarkPlus, BsFolderPlus } from 'react-icons/bs';
+import { TfiBackRight } from 'react-icons/tfi';
+import NameFolder from "../NameFolder";
+import { useEffect, useRef, useState, useContext } from "react";
+import addFile from "../../function/addFile";
 import fileContext from "../../context/fileContext";
+import readFiles from "../../function/readFiles";
+import readFolder from "../../function/readFolder"
 
 export default function AddButtons() {
 
-    const { setFiles } = useContext(fileContext)
+    const { setFiles, setFolder } = useContext(fileContext)
 
     const [selectFile, setSelectFile] = useState(undefined)
     const [nameFolder, setNameFolder] = useState(false)
     const inputRef = useRef()
 
+    function goBack() {
+        localStorage.path = (localStorage.path).slice(0, (localStorage.path).lastIndexOf("/"));
+        readFolder(localStorage.path).then(res => setFolder(res));
+        readFiles(localStorage.path).then(res => setFiles(res));
+    }
     function inputFileRef() {
         inputRef.current.click()
+        readFiles(localStorage.path).then(res => setFiles(res));
     }
 
     useEffect(() => {
@@ -30,6 +39,7 @@ export default function AddButtons() {
 
     return (
         <div className={styles.addButtons}>
+            {localStorage.path != "./myDrive" ? <button className={styles.add} onClick={goBack} >Back <TfiBackRight /></button> : null}
             <button className={styles.add} onClick={inputFileRef} >New File <BsFileEarmarkPlus /></button>
             <button className={styles.add} onClick={() => setNameFolder(!nameFolder)}>New Folder <BsFolderPlus /></button>
             {nameFolder && <NameFolder setNameFolder={setNameFolder} />}
