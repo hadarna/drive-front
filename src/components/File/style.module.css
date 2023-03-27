@@ -19,7 +19,7 @@
   transform: scale(1.1)
 }
 
-.oneFile:hover,.folderPlay:hover, .oneFolder:hover{
+.folderPlay:hover, .oneFolder:hover{
   color: var(--primary);
 } 
 
