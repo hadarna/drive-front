@@ -1,0 +1,11 @@
+.folderName{
+     padding: 2px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight:800;
+}
+
+.folderName:hover{
+    background-color: var(--tertiary);
+    border-radius: 30px;
+}
