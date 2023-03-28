@@ -52,7 +52,7 @@ export default function MenuFolder({ folder }) {
                 <div className={style.container} onClick={() => setIfDelete(false)}>
                     <div className={style.delete} onClick={(event) => event.stopPropagation()}>
                         {isContent ?
-                            <div> This folder contains files. If you delete all the files in it will be deleted as well. Are you sure you want delete it?</div> :
+                            <div> This folder contains files. If you delete the folder, all files in it will be deleted as well. Are you sure you want delete it?</div> :
                             <div> This folder is empty. Are you sure you want delete it?</div>
                         }
                         <div className={style.choose}>

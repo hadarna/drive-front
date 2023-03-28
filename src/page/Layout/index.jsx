@@ -1,4 +1,3 @@
-import styles from "./style.module.css"
 import { useState } from "react"
 import Header from "../../components/Header"
 import Main from "../../components/Main"

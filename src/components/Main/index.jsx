@@ -1,10 +1,10 @@
-import styles from "./style.module.css"
+import style from "./style.module.css"
 import AddButtons from "../AddButtons";
 import NavBar from "../NavBar";
 
 export default function Main() {
     return (
-        <div className={styles.addButton}>
+        <div className={style.menu}>
             <NavBar />
             <AddButtons />
         </div>)

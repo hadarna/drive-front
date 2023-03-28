@@ -1,12 +1,16 @@
-import styles from "./style.module.css"
-import { useContext } from "react";
+import style from "./style.module.css"
+import { useContext, useState } from "react";
 import fileContext from "../../context/fileContext";
+import NavigateFolder from "../NavigateFolder";
 
 export default function NavBar() {
-    const { setFiles, setFolder } = useContext(fileContext)
+
+
+    let navigate = (localStorage.path).split("/")
 
     return (
-        <div className={styles.navbar}>
-            {(localStorage.path).split("./")}
-        </div>)
+        <div className={style.navBar}> {navigate.map((f) => (navigate[(navigate.length) - 1]) != f ? <span className={style.folderName}><NavigateFolder folderName={f} path={navigate} />/
+        </span> : <span className={style.folderName}><NavigateFolder folderName={f} path={navigate} /></span>)}
+        </div>
+    )
 }

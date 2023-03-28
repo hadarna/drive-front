@@ -1,7 +1,6 @@
 import axios from "axios";
-import readFolder from "./readFolder";
 
-const createFolder = async (setFolder, name) => {
+const createFolder = async (name) => {
     console.log(name);
     let path;
     if (localStorage.path === undefined) {
@@ -13,13 +12,15 @@ const createFolder = async (setFolder, name) => {
 
     }
     try {
-        await axios({
-            method: "post",
+        const data = await axios({
+            method: "get",
             url: "http://localhost:3456/api/folder/new",
-            data: { path: path, name: name }
-        });
-        readFolder(localStorage.path ? localStorage.path : './myDrive').then(res => setFolder(res))
 
+            params: { q: { path, name } },
+        })
+        // readFolder(localStorage.path ? localStorage.path : './myDrive').then(res => setFolder(res))
+        console.log("function", data.data)
+        return (data.data)
     }
     catch (error) {
         throw error;

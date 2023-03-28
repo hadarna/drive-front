@@ -1,4 +1,4 @@
-import styles from "./style.module.css"
+import style from "./style.module.css"
 import { useContext, useEffect } from "react";
 import fileContext from "../../context/fileContext";
 import readFiles from "../../function/readFiles";
@@ -19,19 +19,19 @@ export default function PlayFiles() {
     }, [setFolder, setFiles])
 
     return (
-        <div className={styles.container}>
-            <section className={styles.fileShow}>
-                <header className={styles.headerF}>Folder</header>
-                <div className={styles.files}>
+        <div className={style.container}>
+            <section className={style.fileShow}>
+                <header className={style.headerF}>Folder</header>
+                <div className={style.files}>
                     {folder.length > 0 ?
                         folder.map((v) => { return <Folder folder={v} key={v} /> })
                         : "No Folders"}
 
                 </div>
             </section>
-            <section className={styles.fileShow}>
-                <header className={styles.headerF}>Files</header>
-                <div className={styles.files}>
+            <section className={style.fileShow}>
+                <header className={style.headerF}>Files</header>
+                <div className={style.files}>
                     {files.length > 0 ?
                         files.map((v) => { return <File file={v} key={v} /> })
                         : "No Files"}

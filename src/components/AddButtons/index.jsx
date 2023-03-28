@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import style from "./style.module.css";
 import { BsFileEarmarkPlus, BsFolderPlus } from 'react-icons/bs';
 import { TfiBackRight } from 'react-icons/tfi';
 import NameFolder from "../NameFolder";
@@ -38,10 +38,10 @@ export default function AddButtons() {
 
 
     return (
-        <div className={styles.addButtons}>
-            {localStorage.path != "./myDrive" ? <button className={styles.add} onClick={goBack} >Back <TfiBackRight /></button> : null}
-            <button className={styles.add} onClick={inputFileRef} >New File <BsFileEarmarkPlus /></button>
-            <button className={styles.add} onClick={() => setNameFolder(!nameFolder)}>New Folder <BsFolderPlus /></button>
+        <div className={style.addButtons}>
+            {localStorage.path != "./myDrive" ? <button className={style.add} onClick={goBack} >Back <TfiBackRight /></button> : null}
+            <button className={style.add} onClick={inputFileRef} >New File <BsFileEarmarkPlus /></button>
+            <button className={style.add} onClick={() => setNameFolder(!nameFolder)}>New Folder <BsFolderPlus /></button>
             {nameFolder && <NameFolder setNameFolder={setNameFolder} />}
             <input type="file" ref={inputRef} hidden onChange={((e) => setSelectFile(e.target.files[0]))} />
         </div>
