@@ -18,7 +18,7 @@ export default function File({ file }) {
     else if (type === 'pdf') {
         reactIcon = <BsFileEarmarkPdf />
     }
-    else if (type === 'word') {
+    else if (type === 'word' || type === 'docx') {
         reactIcon = <BsFileEarmarkWord />
     }
     else if (type === 'ptx') {
